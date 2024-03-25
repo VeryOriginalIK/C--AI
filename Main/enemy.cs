@@ -10,7 +10,7 @@ namespace Main
     {
         public Enemy()
         {
-            this.kinezet = 'ᗣ';
+            this.kinezet = 'ඞ';
             this.x = 10;
             this.y = 6;
         }
