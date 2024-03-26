@@ -23,28 +23,67 @@ namespace Main
             {
                 case ConsoleKey.LeftArrow:
                     {
-                        if (palya[y, x--] == ' ')
+                        if (x != 0 && palya[y, --x] == ' ')
+                        {
+                            palya[y, ++x] = ' ';
                             x--;
-                        if (palya[y, x--] == '&')
-                            x = 21;
+                        }
+                        else
+                            x++;
+
+
+                        if (palya[y, --x] == '&')
+                        {
+                            palya[y, ++x] = ' ';
+                            x = 20;
+                        }
+                        else
+                            x++;
+                        break;
+
                     }
                 case ConsoleKey.RightArrow:
                     {
-                        if (palya[y, x++] == ' ')
+                        if (palya[y, ++x] == ' ')
+                        {
+                            palya[y, --x] = ' ';
                             x++;
+                        }
+                        else
+                            x--;
+
+                        
                         //teleport a szélén
-                        if (palya[y, x++] == '&')
-                            x = 0;
-                    }
-                case ConsoleKey.UpArrow:
-                    {
-                        if (palya[y++, x] == ' ')
-                            y++;
+                        if (palya[y, ++x] == '&')
+                        {
+                            palya[y, --x] = ' ';
+                            x = 1;
+                        }
+                        else
+                            x--;
+                        break;
                     }
                 case ConsoleKey.DownArrow:
                     {
-                        if (palya[y--, x] == ' ')
+                        if (palya[++y, x] == ' ')
+                        {
+                            palya[--y, x] = ' ';
+                            y++;
+                        }
+                        else
                             y--;
+                        break;
+                    }
+                case ConsoleKey.UpArrow:
+                    {
+                        if (palya[--y, x] == ' ')
+                        {
+                            palya[++y, x] = ' ';
+                            y--;
+                        }
+                        else
+                            y++;
+                        break;
                     }
             }
         }

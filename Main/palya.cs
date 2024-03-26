@@ -10,7 +10,7 @@ namespace Main
     {
         public static char[,] Letrehoz()
         {
-            char[,] palya = new char[13,21];
+            char[,] palya = new char[13,23];
             StreamReader sr = new StreamReader("maze.txt");
             int index = 0;
             while(!sr.EndOfStream)
@@ -32,16 +32,23 @@ namespace Main
         public static void Kiir(char[,] palya)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.Clear();
+
+            var kiirando = new List<string>() { };
             for (int i = 0; i < palya.GetLength(0); i++)
             {
+                kiirando.Add("");
                 for (int j = 0; j < palya.GetLength(1); j++)
                 {
-                    if(palya[i, j] == '&' || palya[i, j] == '$' ) { Console.Write(" "); }
-                    else
-                        Console.Write(palya[i, j]);
+                    if(palya[i, j] == '&' || palya[i, j] == '$' ) { kiirando[i] += ' '; }
+                    else if(j>0)
+                    { kiirando[i] += palya[i,j]; }
                 }
-                Console.WriteLine();
+                
+            }
+            Console.Clear();
+            foreach (var sor in kiirando)
+            {
+                BetterWriteLine.WriteLine(sor);
             }
         }
     }
