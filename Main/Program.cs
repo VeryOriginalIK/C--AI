@@ -1,18 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Main;
+Console.CursorVisible = false;
 
-var palya = Palya.Letrehoz();
-var p1 = new Player();
-var enemies = Enumerable.Range(0, 3).Select(x => new Enemy());
+var e1 = new Enemy(ConsoleColor.Red);
+var e2= new Enemy(ConsoleColor.Magenta);
+var e3 = new Enemy(ConsoleColor.DarkBlue);
+var e4 = new Enemy(ConsoleColor.Green);
 
-while (true)
-{
-    foreach (var e in enemies)
-    {
-        palya[e.y, e.x] = e.kinezet;
-    }
-    p1.Menj(palya);
-    palya[p1.y, p1.x] = p1.kinezet;
-    System.Threading.Thread.Sleep(5);
-    Palya.Kiir(palya);
-}
+Palya.palya[Player.p1.y, Player.p1.x] = Player.p1.kinezet;
+Palya.palya[e1.y, e1.x] = e1.kinezet;
+Palya.Kiir(Palya.palya);
+Palya.palya[Player.p1.y, Player.p1.x] = ' ';
+
+Player.p1.Menj(Palya.palya);

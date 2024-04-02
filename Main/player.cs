@@ -8,83 +8,86 @@ namespace Main
 {
     public class Player : Karakter
     {
+        public static Player p1 = new Player();
+
+        public int pontok;
+
         public Player()
         {
-            this.kinezet = 'ᗧ';
-            this.x = 10;
-            this.y = 11;
+            kinezet = '℗';
+            szin = ConsoleColor.Yellow;
+            x = 10;
+            y = 11;
+            this.pontok = 0;
+        }
+
+        private static void PontKiiras()
+        {
+            Console.SetCursorPosition(8, 14);
+            Console.Write(Player.p1.pontok);
+            Console.SetCursorPosition(p1.x, p1.y);
         }
 
         public void Menj(char[,] palya)
         {
-            var nyil = Console.ReadKey(true).Key;
+            var nyil = Console.ReadKey().Key;
+            while (p1.pontok < 122) {
+
+                if (!Console.KeyAvailable)
+                {
+                   nyil = Console.ReadKey().Key;
+                }
+            Console.Write(' ');
             //Checkelni kell, hogy nem mész falba az adott esetben. Különben nem változtatsz semmit.
             switch (nyil)
             {
                 case ConsoleKey.LeftArrow:
                     {
-                        if (x != 0 && palya[y, --x] == ' ')
-                        {
-                            palya[y, ++x] = ' ';
-                            x--;
-                        }
-                        else
-                            x++;
-
-
-                        if (palya[y, --x] == '&')
-                        {
-                            palya[y, ++x] = ' ';
-                            x = 20;
-                        }
-                        else
-                            x++;
-                        break;
-
+                            int eredmeny = 0;
+                            do
+                            {
+                                eredmeny = Mozgas.Balra(p1);
+                                PontKiiras();
+                            }
+                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.LeftArrow) && eredmeny == 0);
+                            break;
                     }
                 case ConsoleKey.RightArrow:
                     {
-                        if (palya[y, ++x] == ' ')
+                        int eredmeny = 0;
+                        do
                         {
-                            palya[y, --x] = ' ';
-                            x++;
+                            eredmeny = Mozgas.Jobbra(p1);
+                            PontKiiras();
                         }
-                        else
-                            x--;
-
+                        while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.RightArrow) && eredmeny == 0 ) ;
                         
-                        //teleport a szélén
-                        if (palya[y, ++x] == '&')
-                        {
-                            palya[y, --x] = ' ';
-                            x = 1;
-                        }
-                        else
-                            x--;
                         break;
                     }
                 case ConsoleKey.DownArrow:
                     {
-                        if (palya[++y, x] == ' ')
-                        {
-                            palya[--y, x] = ' ';
-                            y++;
-                        }
-                        else
-                            y--;
-                        break;
+                            int eredmeny = 0;
+                            do
+                            {
+                                eredmeny = Mozgas.Le(p1);
+                                PontKiiras();
+                            }
+                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.DownArrow) && eredmeny == 0);
+                            break;
                     }
                 case ConsoleKey.UpArrow:
                     {
-                        if (palya[--y, x] == ' ')
-                        {
-                            palya[++y, x] = ' ';
-                            y--;
-                        }
-                        else
-                            y++;
-                        break;
+                            int eredmeny = 0;
+                            do
+                            {
+                                eredmeny = Mozgas.Fel(p1);
+                                PontKiiras();
+                            }
+                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.UpArrow) && eredmeny == 0);
+                            break;
                     }
+                }
+                
             }
         }
     }

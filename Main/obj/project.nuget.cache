@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "21/iW/AP7+rajxgKk9F64vZLqZi02O3gDtiz9muEz5aXfRNYrWlvRt5W2wgtsnPgt+QoTsQtE/yHriOiCI2Yig==",
+  "dgSpecHash": "MSFAE8rA5iBeLIoxEaTRLeX6ykHncEIKlBENEmlMnIHkxC0kkoWTk8Nd1ghW9JE43Xc8z6qGbyYfwQ4sFKUhFg==",
   "success": true,
-  "projectFilePath": "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\Main.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\Main.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\voros\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.15\\microsoft.windowsdesktop.app.ref.6.0.15.nupkg.sha512",
+    "C:\\Users\\voros\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.15\\microsoft.netcore.app.ref.6.0.15.nupkg.sha512",
+    "C:\\Users\\voros\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.15\\microsoft.aspnetcore.app.ref.6.0.15.nupkg.sha512",
+    "C:\\Users\\voros\\.nuget\\packages\\microsoft.netcore.app.host.win-x86\\6.0.15\\microsoft.netcore.app.host.win-x86.6.0.15.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -8,9 +8,11 @@ namespace Main
 {
     public static class Palya
     {
+        public static char[,] palya = Palya.Letrehoz();
+
         public static char[,] Letrehoz()
         {
-            char[,] palya = new char[13,23];
+            char[,] palya = new char[13,24];
             StreamReader sr = new StreamReader("maze.txt");
             int index = 0;
             while(!sr.EndOfStream)
@@ -40,16 +42,18 @@ namespace Main
                 for (int j = 0; j < palya.GetLength(1); j++)
                 {
                     if(palya[i, j] == '&' || palya[i, j] == '$' ) { kiirando[i] += ' '; }
-                    else if(j>0)
+                    else
                     { kiirando[i] += palya[i,j]; }
                 }
-                
             }
+
             Console.Clear();
             foreach (var sor in kiirando)
             {
-                BetterWriteLine.WriteLine(sor);
+                Console.WriteLine(sor);
             }
+
+            Console.WriteLine("\nPontok: ");
         }
     }
 }

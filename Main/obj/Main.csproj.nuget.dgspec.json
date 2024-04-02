@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\Main.csproj": {}
+    "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\Main.csproj": {}
   },
   "projects": {
-    "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\Main.csproj": {
+    "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\Main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\Main.csproj",
+        "projectUniqueName": "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\Main.csproj",
         "projectName": "Main",
-        "projectPath": "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\Main.csproj",
-        "packagesPath": "C:\\Users\\voros.bence\\.nuget\\packages\\",
-        "outputPath": "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\IKT-AI\\Main\\obj\\",
+        "projectPath": "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\Main.csproj",
+        "packagesPath": "C:\\Users\\voros\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\voros\\Source\\Repos\\VeryOriginalIK\\IKT-AI\\Main\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\voros.bence\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\voros\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,12 +54,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x86",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.15, 6.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
