@@ -36,29 +36,28 @@ namespace Main
                 var kovi = Palya.palya[karakter.y, ++karakter.x];
                 if (kovi == ' ' || kovi == '◦')
                 {
-                if (kovi == '◦' && karakter.Equals(Player.p1))
-                    Player.p1.pontok++;
-                Takarit(kisebb, karakter.y);
-                Kiir(karakter, karakter.x, karakter.y);
-                Thread.Sleep(150);
-                return 0;
+                    if (kovi == '◦' && karakter.Equals(Player.p1))
+                        Player.p1.pontok++;
+                    Takarit(kisebb, karakter.y);
+                    Kiir(karakter, karakter.x, karakter.y);
+                    Thread.Sleep(150);
+                    return 0;
                 }
                 else
                     karakter.x--;
 
                 //teleport a szélén
-                if (Palya.palya[karakter.y, ++karakter.x] == '&')
+                if (kovi == '&')
                 {
                     Takarit(kisebb, karakter.y );
                     Player.p1.x = 1;
                     return 0;
-            }
-            else
-            {
-                karakter.x--;
-                Kiir(karakter, karakter.x, karakter.y); karakter.x--; Thread.Sleep(150); 
+                }
+                else
+                {
+                    Kiir(karakter, karakter.x, karakter.y); Thread.Sleep(150); 
 
-            }
+                }
             return 1;
         }
 

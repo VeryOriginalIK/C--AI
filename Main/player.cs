@@ -37,7 +37,6 @@ namespace Main
                 {
                    nyil = Console.ReadKey().Key;
                 }
-            Console.Write(' ');
             //Checkelni kell, hogy nem mész falba az adott esetben. Különben nem változtatsz semmit.
             switch (nyil)
             {
