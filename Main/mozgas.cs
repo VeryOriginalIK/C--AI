@@ -32,13 +32,13 @@ namespace Main
         public static int Jobbra(Karakter karakter)
         {
 
-                int kisebb = karakter.x;
+                int prevX = karakter.x;
                 var kovi = Palya.palya[karakter.y, ++karakter.x];
                 if (kovi == ' ' || kovi == '◦')
                 {
                     if (kovi == '◦' && karakter.Equals(Player.p1))
                         Player.p1.pontok++;
-                    Takarit(kisebb, karakter.y);
+                    Takarit(prevX, karakter.y);
                     Kiir(karakter, karakter.x, karakter.y);
                     Thread.Sleep(150);
                     return 0;
@@ -49,7 +49,7 @@ namespace Main
                 //teleport a szélén
                 if (kovi == '&')
                 {
-                    Takarit(kisebb, karakter.y );
+                    Takarit(prevX, karakter.y );
                     Player.p1.x = 1;
                     return 0;
                 }
@@ -116,7 +116,7 @@ namespace Main
         public static int Fel(Karakter karakter)
         {
 
-                int nagyobb = karakter.y;
+            int nagyobb = karakter.y;
             var kovi = Palya.palya[--karakter.y, karakter.x];
             if (kovi == ' ' || kovi == '◦')
             {
@@ -128,10 +128,10 @@ namespace Main
                     return 0;
                 }
 
-                Thread.Sleep(150);
-                karakter.y++;
-                Kiir(karakter, karakter.x, karakter.y);
-                return 1;
+            Thread.Sleep(150);
+            karakter.y++;
+            Kiir(karakter, karakter.x, karakter.y);
+            return 1;
         }
     }
 }

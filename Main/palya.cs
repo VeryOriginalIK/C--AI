@@ -8,7 +8,7 @@ namespace Main
 {
     public static class Palya
     {
-        public static char[,] palya = Palya.Letrehoz();
+        public static char[,] palya = Letrehoz();
 
         public static char[,] Letrehoz()
         {
@@ -33,9 +33,9 @@ namespace Main
 
         public static void Kiir(char[,] palya)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
 
-            var kiirando = new List<string>() { };
+            var kiirando = new List<string>();
             for (int i = 0; i < palya.GetLength(0); i++)
             {
                 kiirando.Add("");

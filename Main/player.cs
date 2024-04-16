@@ -16,7 +16,7 @@ namespace Main
         {
             kinezet = '℗';
             szin = ConsoleColor.Yellow;
-            x = 10;
+            x = 11;
             y = 11;
             this.pontok = 0;
         }
@@ -24,24 +24,25 @@ namespace Main
         private static void PontKiiras()
         {
             Console.SetCursorPosition(8, 14);
-            Console.Write(Player.p1.pontok);
+            Console.Write(p1.pontok);
             Console.SetCursorPosition(p1.x, p1.y);
         }
 
         public void Menj(char[,] palya)
         {
             var nyil = Console.ReadKey().Key;
-            while (p1.pontok < 122) {
+            while (p1.pontok < 122)
+            {
 
                 if (!Console.KeyAvailable)
                 {
-                   nyil = Console.ReadKey().Key;
+                    nyil = Console.ReadKey(true).Key;
                 }
-            //Checkelni kell, hogy nem mész falba az adott esetben. Különben nem változtatsz semmit.
-            switch (nyil)
-            {
-                case ConsoleKey.LeftArrow:
-                    {
+                //Checkelni kell, hogy nem mész falba az adott esetben. Különben nem változtatsz semmit.
+                switch (nyil)
+                {
+                    case ConsoleKey.LeftArrow:
+                        {
                             int eredmeny = 0;
                             do
                             {
@@ -50,21 +51,21 @@ namespace Main
                             }
                             while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.LeftArrow) && eredmeny == 0);
                             break;
-                    }
-                case ConsoleKey.RightArrow:
-                    {
-                        int eredmeny = 0;
-                        do
-                        {
-                            eredmeny = Mozgas.Jobbra(p1);
-                            PontKiiras();
                         }
-                        while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.RightArrow) && eredmeny == 0 ) ;
-                        
-                        break;
-                    }
-                case ConsoleKey.DownArrow:
-                    {
+                    case ConsoleKey.RightArrow:
+                        {
+                            int eredmeny = 0;
+                            do
+                            {
+                                eredmeny = Mozgas.Jobbra(p1);
+                                PontKiiras();
+                            }
+                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.RightArrow) && eredmeny == 0);
+
+                            break;
+                        }
+                    case ConsoleKey.DownArrow:
+                        {
                             int eredmeny = 0;
                             do
                             {
@@ -73,9 +74,9 @@ namespace Main
                             }
                             while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.DownArrow) && eredmeny == 0);
                             break;
-                    }
-                case ConsoleKey.UpArrow:
-                    {
+                        }
+                    case ConsoleKey.UpArrow:
+                        {
                             int eredmeny = 0;
                             do
                             {
@@ -84,9 +85,9 @@ namespace Main
                             }
                             while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.UpArrow) && eredmeny == 0);
                             break;
-                    }
+                        }
                 }
-                
+
             }
         }
     }

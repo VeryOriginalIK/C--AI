@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rSHHOjspkb+Fxa5olEAfPP8HfCXYiwBC2DyxowvIqGQGUqHPNOboVmfJtAwaqoHPipczSMn3xlvOP8q0xzT6iA==",
+  "dgSpecHash": "neJdwnPDczmqVFAQGPJxBsLCXJrkELevHe/zbus4KHVXX4TzoPpmZT/9XvpfO46ivI3yKAOboaNfeF3xxy1SSw==",
   "success": true,
-  "projectFilePath": "Z:\\Programozás\\.NET\\IKT\\IKT-AI\\Main\\Main.csproj",
+  "projectFilePath": "D:\\susu\\c#\\ikt_pacman\\Main\\Main.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
