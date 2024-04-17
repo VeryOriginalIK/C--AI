@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class Step {
+    public class Step 
+    {
         public int X;
         public int Y;
         public int F { get { return G + H; } }
@@ -18,7 +19,8 @@ namespace Main
 
     public static class pathfinding
     {
-        public static string[] GetShortestPath(int tagX, int tagY, Karakter karakter) {
+        public static string[] GetShortestPath(int tagX, int tagY, Karakter karakter) 
+        {
             char[,] map = Palya.palya;
             Step start = new Step() { X = karakter.x, Y=karakter.y};
             Step target = new Step() { X = tagX, Y = tagY };
@@ -26,14 +28,15 @@ namespace Main
             var closedList = new List<Step>();
             int g = 0;
             openList.Add(start);
-            return null;
             do
             {
+                return null;
 
             } while (!(openList.Count == 0));
         }
 
-        public static int getHErtek(int targetX, int targetY, int karakterX, int karakterY) {
+        public static int getHErtek(int targetX, int targetY, int karakterX, int karakterY) 
+        {
             return 0;
         }
 
