@@ -31,7 +31,7 @@ namespace Main
         public void Menj(char[,] palya)
         {
             var nyil = Console.ReadKey().Key;
-            while (p1.pontok < 122)
+            while (p1.pontok < 121)
             {
 
                 if (!Console.KeyAvailable)
