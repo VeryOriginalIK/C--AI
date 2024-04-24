@@ -16,6 +16,6 @@ Palya.palya[Player.p1.y, Player.p1.x] = ' ';
 
 Player.p1.Menj(Palya.palya);
 e1.Start();
-Task.Delay(1000).ContinueWith(_ => e2.Start());
-Task.Delay(1000).ContinueWith(_ => e3.Start());
-Task.Delay(1000).ContinueWith(_ => e4.Start());
+await Task.Delay(2000).ContinueWith(_ => e2.Start());
+await Task.Delay(2000).ContinueWith(_ => e3.Start());
+await Task.Delay(2000).ContinueWith(_ => e4.Start());

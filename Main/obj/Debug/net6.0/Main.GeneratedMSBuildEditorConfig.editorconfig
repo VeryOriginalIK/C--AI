@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Main
-<<<<<<< HEAD
 build_property.ProjectDir = Z:\23\prog\_ikt_pacman\Main\
-=======
-build_property.ProjectDir = Z:\Programozás\.NET\IKT\IKT-AI\Main\
->>>>>>> 3bdcc1d4956455259cf6302eb8082936ae8e4d95

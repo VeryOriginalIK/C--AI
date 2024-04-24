@@ -46,32 +46,33 @@ namespace Main
             {
                 if (x > targetX && Palya.palya[y, x - 1] != '#')
                 {
-                    Mozgas.Balra(this);
+                    await Mozgas.Balra(this);
+                    
                 }
                 else if (x < targetX && Palya.palya[y, x + 1] != '#')
                 {
-                    Mozgas.Jobbra(this);
+                    await Mozgas.Jobbra(this);
                 }
                 else if (y > targetY && Palya.palya[y - 1, x] != '#')
                 {
-                    Mozgas.Le(this);
+                    await Mozgas.Le(this);
                 }
                 else if (y < targetY && Palya.palya[y + 1, x] != '#')
                 {
-                    Mozgas.Fel(this);
+                    await Mozgas.Fel(this);
                 }
                 else if (Palya.palya[y + 1, x] != '#')
                 {
-                    Mozgas.Fel(this);
+                    await Mozgas.Fel(this);
                 }
                 else if (Palya.palya[y - 1, x] != '#')
                 {
-                    Mozgas.Le(this);
+                    await Mozgas.Le(this);
                 }
                 else if (Palya.palya[y, x + 1] != '#') {
-                    Mozgas.Jobbra(this);
+                    await Mozgas.Jobbra(this);
                 } else {
-                    Mozgas.Balra(this);
+                    await Mozgas.Balra(this);
                 }
             }
         }
