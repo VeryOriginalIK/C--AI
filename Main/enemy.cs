@@ -10,7 +10,7 @@ using System.Timers;
 
 namespace Main
 {
-    internal class Enemy : Karakter
+    public class Enemy : Karakter
     {
 
         public int status = 0;
@@ -34,20 +34,19 @@ namespace Main
             await Task.Delay(7000).ContinueWith(_ => Chase());
             await Task.Delay(20000).ContinueWith(_ => Scatter());
             await Task.Delay(7000).ContinueWith(_ => Chase());
-
-
-            while (Player.p1.pontok < 122)
-            {
-            }
         }
 
         public async void kovesd(int stopStatus, int targetX, int targetY) {
-            while (status == stopStatus)
+            while (status == stopStatus || Player.p1.pontok < 121 || Player.p1.isAlive)
             {
+                if (x == Player.p1.x && y == Player.p1.y)
+                {
+                    Player.p1.isAlive = false;
+                }
+
                 if (x > targetX && Palya.palya[y, x - 1] != '#')
                 {
                     await Mozgas.Balra(this);
-                    
                 }
                 else if (x < targetX && Palya.palya[y, x + 1] != '#')
                 {

@@ -12,6 +12,8 @@ namespace Main
 
         public int pontok;
 
+        public bool isAlive;
+
         public Player()
         {
             kinezet = '℗';
@@ -19,6 +21,7 @@ namespace Main
             x = 11;
             y = 11;
             this.pontok = 0;
+            isAlive = true;
         }
 
         private static void PontKiiras()
@@ -31,8 +34,7 @@ namespace Main
         public async Task Menj(char[,] palya)
         {
             var nyil = Console.ReadKey().Key;
-            while (p1.pontok < 121)
-            {
+            
                 if (!Console.KeyAvailable)
                 {
                     nyil = Console.ReadKey(true).Key;
@@ -88,4 +90,3 @@ namespace Main
         }
 
     }
-}

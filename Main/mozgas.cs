@@ -10,6 +10,14 @@ namespace Main
     public static class Mozgas
     {
 
+        public static async void enemyStart(Enemy e1, Enemy e2,Enemy e3, Enemy e4) {
+
+            e1.Start();
+            await Task.Delay(2000).ContinueWith(_ => e2.Start());
+            await Task.Delay(2000).ContinueWith(_ => e3.Start());
+            await Task.Delay(2000).ContinueWith(_ => e4.Start());
+        }
+
         private static void Kiir(Karakter karakter, int y, int x )
         {
             Console.SetCursorPosition(y,x);
