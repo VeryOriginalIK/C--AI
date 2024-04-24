@@ -25,7 +25,13 @@ namespace Main
             {
                 Palya.palya[x, y] = ' ';
                 Console.SetCursorPosition(y, x);
-                Console.Write(' ');
+                if (Player.p1.x == x && Player.p1.y == y)
+                {
+                    Console.Write(' ');
+                }else
+                {
+                    Console.Write('◦');
+                }
             }
         }
 
