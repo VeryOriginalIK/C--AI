@@ -19,7 +19,7 @@ namespace Main
             this.y = y;
         }
 
-        public async void Start()
+        public async Task Start()
         {
             Scatter();
             Task.Delay(7000).ContinueWith(_ => Chase());
@@ -29,7 +29,7 @@ namespace Main
             Task.Delay(7000).ContinueWith(_ => Chase());
             Task.Delay(20000).ContinueWith(_ => Scatter());
             Task.Delay(7000).ContinueWith(_ => Chase());
-
+            
 
 
 
@@ -43,7 +43,7 @@ namespace Main
             int targetX = Player.p1.x;
             int targetY = Player.p1.y;
         }
-        public async void Scatter() 
+        public async void Scatter()
         {
             Random r = new Random();
             int targetX = r.Next(13);
