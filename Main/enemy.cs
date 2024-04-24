@@ -36,7 +36,7 @@ namespace Main
             await Task.Delay(7000).ContinueWith(_ => Chase());
         }
 
-        public async void kovesd(int stopStatus, int targetX, int targetY) {
+        public async Task kovesd(int stopStatus, int targetX, int targetY) {
             while (status == stopStatus || Player.p1.pontok < 121 || Player.p1.isAlive)
             {
                 if (x == Player.p1.x && y == Player.p1.y)
@@ -76,7 +76,7 @@ namespace Main
             }
         }
 
-        public async void Chase() 
+        public async Task Chase() 
         {
             status = 3;
             int targetX = Player.p1.x;
@@ -84,7 +84,7 @@ namespace Main
             kovesd(3, targetX, targetY);
             
         }
-        public async void Scatter()
+        public async Task Scatter()
         {
             status = 1;
             Random r = new Random();
@@ -95,7 +95,7 @@ namespace Main
         }
 
 
-        public async void Flee()
+        public async Task Flee()
         {
             status = 2;
             this.kinezet = '៛';
