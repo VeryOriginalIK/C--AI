@@ -35,109 +35,124 @@ namespace Main
             }
         }
 
-        public static int Jobbra(Karakter karakter)
+        public static async Task<int> Jobbra(Karakter karakter)
         {
+            int prevX = karakter.x;
+            var kovi = Palya.palya[karakter.y, ++karakter.x];
 
-                int prevX = karakter.x;
-                var kovi = Palya.palya[karakter.y, ++karakter.x];
-                if (kovi == ' ' || kovi == '◦')
-                {
-                    if (kovi == '◦' && karakter.Equals(Player.p1))
-                        Player.p1.pontok++;
-                    Takarit(prevX, karakter.y);
-                    Kiir(karakter, karakter.x, karakter.y);
-                    Thread.Sleep(150);
-                    return 0;
-                }
-                else
-                    karakter.x--;
-
-                //teleport a szélén
-                if (kovi == '&')
-                {
-                    Takarit(prevX, karakter.y );
-                    Player.p1.x = 1;
-                    return 0;
-                }
-                else
-                {
-                    Kiir(karakter, karakter.x, karakter.y); Thread.Sleep(150); 
-
-                }
-            return 1;
-        }
-
-        public static int Balra(Karakter karakter)
-        {
-
-            int kisebb = karakter.x;
-            var kovi = Palya.palya[karakter.y, --karakter.x];
             if (kovi == ' ' || kovi == '◦')
             {
                 if (kovi == '◦' && karakter.Equals(Player.p1))
                     Player.p1.pontok++;
-                Takarit(kisebb, karakter.y);
+
+                Takarit(prevX, karakter.y);
                 Kiir(karakter, karakter.x, karakter.y);
-                Thread.Sleep(150);
+                await Task.Delay(150); // Asynchronous delay
                 return 0;
             }
-            else 
+            else
+            {
+                karakter.x--;
+            }
+
+            // Teleport at the edge
+            if (kovi == '&')
+            {
+                Takarit(prevX, karakter.y);
+                Player.p1.x = 1;
+                return 0;
+            }
+            else
+            {
+                Kiir(karakter, karakter.x, karakter.y);
+                await Task.Delay(150); // Asynchronous delay
+            }
+
+            return 1;
+        }
+
+
+        public static async Task<int> Balra(Karakter karakter)
+        {
+            int kisebb = karakter.x;
+            var kovi = Palya.palya[karakter.y, --karakter.x];
+
+            if (kovi == ' ' || kovi == '◦')
+            {
+                if (kovi == '◦' && karakter.Equals(Player.p1))
+                    Player.p1.pontok++;
+
+                Takarit(kisebb, karakter.y);
+                Kiir(karakter, karakter.x, karakter.y);
+                await Task.Delay(150); // Asynchronous delay
+                return 0;
+            }
+            else
+            {
                 karakter.x++;
-            
-            //teleport a szélén
+            }
+
             if (Palya.palya[karakter.y, --karakter.x] == '&')
             {
                 Takarit(kisebb, karakter.y);
                 Player.p1.x = 21;
                 return 0;
             }
-            else {
+            else
+            {
                 karakter.x++;
                 Kiir(karakter, karakter.x, karakter.y);
-             Thread.Sleep(150);
-                }
-                return 1;     
-        }
+                await Task.Delay(150);
+            }
 
-        public static int Le(Karakter karakter)
-        {
-                int kisebb = karakter.y;
-
-                var kovi = Palya.palya[++karakter.y, karakter.x];
-                if (kovi == ' ' || kovi == '◦')
-                {
-                    if (kovi == '◦' && karakter.Equals(Player.p1))
-                        Player.p1.pontok++;
-                    Takarit(karakter.x, kisebb);
-                    Kiir(karakter, karakter.x, karakter.y);
-                    Thread.Sleep(200);
-                     return 0;
-                }
-            karakter.y--;
-            Kiir(karakter, karakter.x, karakter.y);
             return 1;
         }
-   
 
-        public static int Fel(Karakter karakter)
+
+        public static async Task<int> Le(Karakter karakter)
         {
+            int kisebb = karakter.y;
 
-            int nagyobb = karakter.y;
-            var kovi = Palya.palya[--karakter.y, karakter.x];
+            var kovi = Palya.palya[++karakter.y, karakter.x];
             if (kovi == ' ' || kovi == '◦')
             {
                 if (kovi == '◦' && karakter.Equals(Player.p1))
                     Player.p1.pontok++;
-                    Takarit(karakter.x, nagyobb);
-                    Kiir(karakter, karakter.x, karakter.y);
-                    Thread.Sleep(200);
-                    return 0;
-                }
 
-            Thread.Sleep(150);
+                Takarit(karakter.x, kisebb);
+                Kiir(karakter, karakter.x, karakter.y);
+                await Task.Delay(200); // Asynchronous delay
+                return 0;
+            }
+
+            karakter.y--;
+            Kiir(karakter, karakter.x, karakter.y);
+            return 1;
+        }
+
+
+
+        public static async Task<int> Fel(Karakter karakter)
+        {
+            int nagyobb = karakter.y;
+            var kovi = Palya.palya[--karakter.y, karakter.x];
+
+            if (kovi == ' ' || kovi == '◦')
+            {
+                if (kovi == '◦' && karakter.Equals(Player.p1))
+                    Player.p1.pontok++;
+
+                Takarit(karakter.x, nagyobb);
+                Kiir(karakter, karakter.x, karakter.y);
+                await Task.Delay(200); // Asynchronous delay
+                return 0;
+            }
+
+            await Task.Delay(150); // Asynchronous delay
             karakter.y++;
             Kiir(karakter, karakter.x, karakter.y);
             return 1;
         }
+
     }
 }

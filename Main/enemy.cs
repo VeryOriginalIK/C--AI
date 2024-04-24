@@ -24,7 +24,7 @@ namespace Main
             status = 0;
         }
 
-        public async void Start()
+        public async Task Start()
         {
             Scatter();
             await Task.Delay(7000).ContinueWith(_ => Chase());
@@ -84,7 +84,7 @@ namespace Main
             kovesd(3, targetX, targetY);
             
         }
-        public async void Scatter() 
+        public async void Scatter()
         {
             status = 1;
             Random r = new Random();
