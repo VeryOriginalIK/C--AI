@@ -10,7 +10,7 @@ namespace Main
     public abstract class Karakter
     {
         //koordinatak
-        public int x, y;
+        public int x, y, prevX,prevY, targetX, targetY;
         public ConsoleColor szin;
         public char kinezet;
 

@@ -24,32 +24,29 @@ namespace Main
             isAlive = true;
         }
 
-        private static void PontKiiras()
+        private static ConsoleKey nyil;
+
+        private static async Task Beker()
         {
-            Console.SetCursorPosition(8, 14);
-            Console.Write(p1.pontok);
-            Console.SetCursorPosition(p1.x, p1.y);
+            await Task.Run(() => nyil = nyil = Console.ReadKey(true).Key);
+            
         }
 
         public async Task Menj(char[,] palya)
         {
-            var nyil = Console.ReadKey().Key;
-            
-                if (!Console.KeyAvailable)
-                {
-                    nyil = Console.ReadKey(true).Key;
-                }
                 switch (nyil)
                 {
                     case ConsoleKey.LeftArrow:
                         {
                             int eredmeny = 0;
                             do
-                            {
-                                eredmeny = await Mozgas.Balra(p1);
-                                PontKiiras();
-                            }
-                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.LeftArrow) && eredmeny == 0);
+                        {
+                            eredmeny = await Mozgas.Balra(p1);
+                                Beker();
+
+                            Thread.Sleep(50);
+                        }
+                            while (!(nyil != ConsoleKey.LeftArrow) && eredmeny == 0);
                             break;
                         }
                     case ConsoleKey.RightArrow:
@@ -57,36 +54,44 @@ namespace Main
                             int eredmeny = 0;
                             do
                             {
-                                eredmeny = await Mozgas.Jobbra(p1);
-                                PontKiiras();
-                            }
-                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.RightArrow) && eredmeny == 0);
+
+                            eredmeny = await Mozgas.Jobbra(p1);
+                                Beker();
+
+                            Thread.Sleep(50);
+                        }
+                            while (!(nyil != ConsoleKey.RightArrow) && eredmeny == 0);
                             break;
                         }
                     case ConsoleKey.DownArrow:
                         {
                             int eredmeny = 0;
-                            do
-                            {
-                                eredmeny = await Mozgas.Le(p1);
-                                PontKiiras();
-                            }
-                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.DownArrow) && eredmeny == 0);
+                        do {
+                            eredmeny = await Mozgas.Le(p1);
+                            Beker();
+Thread.Sleep(50);
+                        }
+                            while (!(nyil != ConsoleKey.DownArrow) && eredmeny == 0);
                             break;
                         }
                     case ConsoleKey.UpArrow:
                         {
                             int eredmeny = 0;
                             do
-                            {
-                                eredmeny = await Mozgas.Fel(p1);
-                                PontKiiras();
-                            }
-                            while (!(Console.KeyAvailable && Console.ReadKey(true).Key != ConsoleKey.UpArrow) && eredmeny == 0);
+                        {
+                            Player.p1.prevY = p1.y;
+                            Player.p1.prevX = p1.x;
+                            eredmeny = await Mozgas.Fel(p1);
+                                Beker();
+
+                            Thread.Sleep(50);
+                        }
+                            while (!( nyil != ConsoleKey.UpArrow) && eredmeny == 0);
                             break;
                         }
                 }
-            }
+            Beker();
+        }
         }
 
     }
